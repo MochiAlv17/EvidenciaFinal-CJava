@@ -1,23 +1,259 @@
-# Compiled class file
-*.class
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
 
-# Log file
-*.log
+package com.mycompany.cjevi2;
 
-# BlueJ files
-*.ctxt
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+/**
+ *
+ * @author natal
+ */
+public class CJEvi2 {
+    
+    public static ArrayList <Doctorpack> doctores = new ArrayList<Doctorpack>();
+    public static ArrayList <Pacientepack> pac = new ArrayList<Pacientepack>();
+    public static ArrayList <Motivocitamedica> mcs = new ArrayList<Motivocitamedica>();
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+    
+    public static Scanner leer=new Scanner (System.in);
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+    public static void main(String[] args) {
+        
+        
+        int opc, ban =0, i;
+        String Motivo;
+        
+        
+        System.out.println("***\nCitas Medicas Tecmilenio\n***");
+        
+        do
+        {
+            try
+            {
+                
+            
+            System.out.println("\n  Favor Dar de alta Doctores y pacientes primero\n ");
+            System.out.println("\nMenu:  ");
+                System.out.println("Dar de alta Doctor ------- [1]");
+                System.out.println("Dar de alta Paciente ----- [2]");
+                System.out.println("Dar de alta cita medica -- [3]");
+                System.out.println("Lista de Doctores -------- [4]");
+                System.out.println("Lista de Pacientes  ------ [5]");
+                System.out.println("Salida ------------------- [0]");
+                System.out.println("Seleccione una opcion en el menu:");
+                
+                opc = leer.nextInt();
+                
+                switch(opc)
+                {
+                    case 1:
+                        
+                        AltaD(doctores);
+                        
+                        break;
+                    
+                    case 2:
+                        
+                        Alta(pac);
+                        
+                        break;
+                    
+                    case 3:
+                        
+                        AltaC(mcs);  
+                        break;
+                    
+                    case 4:
+                        
+                        MostrarD();
+                        
+                        break;
+                    case 5:
+                        
+                        Mostrar();
+                        
+                        break;
+                        
+                    case 0:
+                        
+                        System.out.println("Saliendo");
+                        ban = 1;
+                        break;
+                    default:
+                        System.out.print("Opcion incorrecta\n");
+                        break;
+                        
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println("Error !! Empiece de nuevo y escoga otra opcion del menu\n");
+                break;
+            }
+        } while (ban == 0);
+    }
+    
+    public static void AltaD(ArrayList<Doctorpack> array)
+    {
+        int c,i;
+        leer.useDelimiter("\n");
+        
+        String NombreDoc;
+        int iddoc;
+        String especialidaddoc;
+        int numeroTeldoc;
+        String disponibledoc;
+        
+        System.out.println("Cuantos Doctores desea dar de alta?\n");
+        c = leer.nextInt();
+        
+        for(i = 0; i < c;i++)
+        {
+            Doctorpack docs = new Doctorpack();
+            
+            System.out.println("Introduzca el nombre Doctor");
+            NombreDoc= leer.next();
+            docs.setNombreDoc(NombreDoc);
+            System.out.println("Introduzca el ID del Doctor");
+            iddoc= leer.nextInt();
+            docs.setIddoc(iddoc);
+            System.out.println("Introduzca la especialidad del Doctor");
+            especialidaddoc= leer.next();
+            docs.setEspecialidaddoc(especialidaddoc);
+            System.out.println("Introduzca el numero telefonico del Doctor");
+            numeroTeldoc= leer.nextInt();
+            docs.setNumeroTeldoc(numeroTeldoc);
+            System.out.println("El doctor esta Disponible?");
+            disponibledoc= leer.next();
+            docs.setDisponibledoc(disponibledoc);
+            
+            
+            array.add(docs);
+            
+            System.out.println("\n---Doctor : *" +docs.getNombreDoc()+"* dada de alta---");
+        }    
+        System.out.println("Regresando a Menu Principal, Porfavor escoga otra opcion:......");
+        }
+    
+    public static void Alta(ArrayList<Pacientepack> array)
+    {
+        int c,i;
+        leer.useDelimiter("\n");
+        
+        String Nombrepac;
+        int idpac;
+        int aniopac;
+        
+        System.out.println("Cuantos Pacientes desea dar de alta?\n");
+        c = leer.nextInt();
+        
+        for(i = 0; i < c;i++)
+        {
+            Pacientepack packs = new Pacientepack();
+            
+            System.out.println("Introduzca el nombre Paciente");
+            Nombrepac= leer.next();
+            packs.setNombrepac(Nombrepac);
+            System.out.println("Introduzca el ID del Paciente");
+            idpac= leer.nextInt();
+            packs.setIdpac(idpac);
+            System.out.println("Introduzca la edad del paciente ");
+            aniopac= leer.nextInt();
+            packs.setAniopac(aniopac);
+            
+            
+            
+            array.add(packs);
+            
+            System.out.println("\n---Paciente : *"+packs.getNombrepac()+"* dada de alta---");
+            }    
+        System.out.println("Regresando a Menu Principal, Porfavor escoga otra opcion:......");
+    }
+    public static void MostrarD()
+    {
+        
+        int i;
+        String mensaje1 = "1", mensaje2 = "2";
+         
+        System.out.println("**Lista de Doctores**\n");
+        System.out.println("------------------------");
+                        for (i = 0; i < pac.size(); i++)
+                        {
+                           
+                            
+                            System.out.println("Nombre del Doctor:  " + doctores.get(i).getNombreDoc()+"\nID del Doctor: "+doctores.get(i).getIddoc());
+                            System.out.println("Especialidad del Doctor: "+doctores.get(i).getEspecialidaddoc()+"\nDisponibilidad del doctor: "+doctores.get(i).getDisponibledoc());
+                            System.out.println("\nNumero Telefonico: "+doctores.get(i).getNumeroTeldoc());
+                            System.out.println("-------------------------------------------------------------------------");
+                        }
+    }
+    
+    public static void Mostrar()
+    {
+        int i;
+        
+        System.out.println("**Lista de Pacientes**\n");
+        System.out.println("------------------------");
+        for (i = 0; i < pac.size(); i++)
+                        {
+                            
+        
+                            System.out.println("Nombre del paciente: " +pac.get(i).getNombrepac()+"\nID del paciente: "+ pac.get(i).getIdpac());
+                            System.out.println("Edad del paciente: "+pac.get(i).getAniopac()+" años");
+                            System.out.println("-------------------------------------------------------------------------");
+                        }
+    }
+    public static void create(HashMap<String, String> mapaCon, String Mot)
+    {           
+        
+            if(mapaCon.containsKey(Mot))
+            {
+                 
+                System.out.println("\nContacto agregado");
+            }
+        
+    }
+    public static void AltaC(ArrayList<Motivocitamedica> array)
+    {
+        
+        int c,i;
+        leer.useDelimiter("\n");
+        
+        String Motivocita;
+        
+        System.out.println("Cuantas citas medicas desea añadir? \n");
+        c = leer.nextInt();
+        
+        for(i = 0; i < c;i++)
+        {
+            Motivocitamedica mc = new Motivocitamedica();
+            
+            System.out.println("Motivo de la cita Medica?: ");
+            Motivocita= leer.next();
+            mc.setMotivocita(Motivocita);
+            
+            System.out.println("\n---Motivo de la cita medica: *" +mc.getMotivocita());
+            
+            System.out.println("\n---Motivo de la cita medica: *" +mc.getMotivocita());
+            System.out.println("Nombre del Doctor:  " + doctores.get(i).getNombreDoc()+"\nID del Doctor: "+ doctores.get(i).getIddoc());
+            System.out.println("Nombre del paciente: " + pac.get(i).getNombrepac()+"\nID del paciente: "+ pac.get(i).getIdpac());
+            
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                        System.out.println(""+dtf.format(LocalDateTime.now()));
+            
+            array.add(mc);
+            
+            
+            
+        }    
+        System.out.println("Regresando a Menu Principal, Porfavor escoga otra opcion:......");
+        }
+   
+}
