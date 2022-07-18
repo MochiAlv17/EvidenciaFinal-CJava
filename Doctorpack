@@ -1,0 +1,59 @@
+package com.mycompany.cjevi2;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author natal
+ */
+public class Doctorpack {
+    
+    public String NombreDoc;
+    public int iddoc;
+    public String especialidaddoc;
+    public int numeroTeldoc;
+    public String disponibledoc;
+    
+    public Doctorpack() { 
+        this.NombreDoc=NombreDoc;
+        this.iddoc=iddoc; 
+        this.especialidaddoc=especialidaddoc;        
+        this.numeroTeldoc=numeroTeldoc;        
+        this.disponibledoc=disponibledoc;       
+      
+    }
+    
+    public void setNombreDoc(String NombreDoc) { 
+        this.NombreDoc=NombreDoc;
+    }
+    public void setIddoc(int iddoc) { 
+        this.iddoc=iddoc;
+    }
+    public void setEspecialidaddoc(String especialidaddoc) { 
+        this.especialidaddoc=especialidaddoc;
+    }
+    public void setNumeroTeldoc(int numeroTeldoc) { 
+        this.numeroTeldoc=numeroTeldoc;
+    }
+    public void setDisponibledoc(String disponibledoc) { 
+        this.disponibledoc=disponibledoc;
+    }
+    public String getNombreDoc() {
+        return NombreDoc;
+    }
+    public int getIddoc() {
+        return iddoc;
+    }
+    public String getEspecialidaddoc() {
+        return especialidaddoc;
+    }
+    public int getNumeroTeldoc() { 
+        return numeroTeldoc;
+    }
+    public String getDisponibledoc() {
+        return disponibledoc;
+    }
+}
