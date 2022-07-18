@@ -1,0 +1,26 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.cjevi2;
+
+/**
+ *
+ * @author natal
+ */
+public class Motivocitamedica {
+    
+    public String Motivocita;
+    
+    public Motivocitamedica() { 
+        this.Motivocita=Motivocita;
+    
+    }
+    public void setMotivocita(String Motivocita) { 
+        this.Motivocita=Motivocita;
+    }
+    public String getMotivocita() {
+        return Motivocita;
+    }
+ 
+}
