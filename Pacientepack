@@ -1,0 +1,42 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.cjevi2;
+
+/**
+ *
+ * @author natal
+ */
+public class Pacientepack {
+    
+    public String Nombrepac;
+    public int idpac;
+    public int aniopac;
+    
+    public Pacientepack() { 
+        this.Nombrepac=Nombrepac;
+        this.idpac=idpac; 
+        this.aniopac=aniopac;        
+       
+    }
+    
+    public void setNombrepac(String Nombrepac) { 
+        this.Nombrepac=Nombrepac;
+    }
+    public void setIdpac (int idpac) { 
+        this.idpac=idpac;
+    }
+    public void setAniopac (int aniopac) { 
+        this.aniopac=aniopac;
+    }
+    public String getNombrepac() {
+        return Nombrepac;
+    }
+    public int getIdpac() {
+        return idpac;
+    }
+    public int getAniopac() { 
+        return aniopac;
+    }
+}
